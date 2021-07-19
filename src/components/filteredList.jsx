@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { List } from 'antd';
+import { List, Badge } from 'antd';
+import dateFormat from 'dateformat';
+import { LikeFilled, DislikeFilled } from '@ant-design/icons';
 
 function FilteredList() {
 
@@ -22,22 +24,13 @@ function FilteredList() {
       )
   }, [])
 
-  const length = items.length;
-  const listData = items.map(item => (
-    {
-      title: item.headline,
-      description: item.score,
-      content: item.comment,
-    }
-  ));
-
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
     return <div>Loading...</div>;
   } else {
     return (
-      <div className="App">
+      <div className="ShowList">
         <List
           itemLayout="vertical"
           size="large"
@@ -46,23 +39,27 @@ function FilteredList() {
               console.log(page);
             },
             pageSize: 5,
-            total: length,
+            total: items.length,
           }}
-          dataSource={listData}
+          dataSource={items}
           header={
-            <div>
-              <h1>Reviews</h1>
+            <div style={{paddingLeft: '24px', paddingTop: '24px'}}>
+              <h1><b>{items.length} Reviews</b></h1>
             </div>
           }
           renderItem={item => (
             <List.Item
-              key={item.title}
+              key={item.headline}
             >
+              <div><Badge count={item.score} /></div>
               <List.Item.Meta
-                title={item.title}
-                description={item.description}
+                title={item.headline}
               />
-              {item.content}
+              <div>{item.comment}</div>
+              {item.positiveFeedback != null && <div><LikeFilled style={{color: 'green'}}/> {item.positiveFeedback}</div>}
+              {item.negativeFeedback != null && <div><DislikeFilled style={{color: 'black'}}/> {item.negativeFeedback}</div>}
+              <div style={{marginTop: '12px'}}><b>{item.author}</b></div>
+              <div style={{color: 'gray'}}>{dateFormat(item.publishedAt, "Review d mmmm yyyy")}</div>
             </List.Item>
           )}
         />
