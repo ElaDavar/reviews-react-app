@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { List, Badge } from 'antd';
 import dateFormat from 'dateformat';
 import { LikeFilled, DislikeFilled } from '@ant-design/icons';
+import HOLIDU from '../assets/HOLIDU.svg';
+import AIRBNB from '../assets/AIRBNB.svg';
+import BOOKINGCOM from '../assets/BOOKINGCOM.svg';
+import './filteredList.css';
 
 function FilteredList() {
 
@@ -43,7 +47,7 @@ function FilteredList() {
           }}
           dataSource={items}
           header={
-            <div style={{paddingLeft: '24px', paddingTop: '24px'}}>
+            <div>
               <h1><b>{items.length} Reviews</b></h1>
             </div>
           }
@@ -51,7 +55,11 @@ function FilteredList() {
             <List.Item
               key={item.headline}
             >
-              <div><Badge count={item.score} /></div>
+              <div><Badge count={item.score} />
+              {item.channel === "HOLIDU" && <img src={HOLIDU} alt="HOLIDU"/>}
+              {item.channel === "AIRBNB" && <img src={AIRBNB} alt="AIRBNB" />}
+              {item.channel === "BOOKINGCOM" && <img src={BOOKINGCOM} alt="BOOKINGCOM" />}
+              </div>
               <List.Item.Meta
                 title={item.headline}
               />

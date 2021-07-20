@@ -3,7 +3,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App" style={{ backgroundImage: `url("/background.png")` }}>
+    <div className="App">
       <FilteredList />
     </div>
   );

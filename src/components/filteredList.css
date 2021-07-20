@@ -1,0 +1,43 @@
+@import "~antd/dist/antd.css";
+
+@media (min-width: 1025px) {
+  .ShowList {
+    margin: 180px 250px 20px 250px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .ShowList {
+    margin: 30px 50px 5px 50px;
+  }
+}
+
+.ShowList {
+  background-color: white;
+}
+
+.ant-list-pagination {
+  text-align: center;
+}
+
+.ant-badge-count {
+  margin-bottom: 15px;
+  font-size: 15px;
+  background: #1890ff;
+  border-radius: 5px;
+  min-width: 40px;
+}
+
+.ant-list-vertical .ant-list-item-meta-title {
+  margin-bottom: 0px;
+  font-weight: bold;
+}
+
+img {
+  margin-bottom: 15px;
+  margin-left: 10px;
+}
+
+h1 {
+  padding: 24px 0 0 24px;
+}
