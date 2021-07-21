@@ -1,10 +1,10 @@
-import FilteredList from './components/filteredList';
+import ShowList from './components/showList/showList';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <FilteredList />
+      <ShowList />
     </div>
   );
 }

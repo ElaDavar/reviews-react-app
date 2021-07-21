@@ -1,0 +1,23 @@
+@import "~antd/dist/antd.css";
+
+.FilterList {
+  margin-left: 25px;
+}
+
+@media (min-width: 426px) {
+  .ant-select {
+    width: 30%;
+    margin: 20px 5px 0px 10px;
+  }
+}
+
+@media (max-width: 425px) {
+  .ant-select {
+    width: 90%;
+    margin: 3px;
+  }
+
+  .FilterList {
+    padding-top: 5px;
+  }
+}
